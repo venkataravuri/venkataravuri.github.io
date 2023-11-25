@@ -74,7 +74,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Welcome to UnoBOTics \U0001F44B"
-    Content: Hi, this is **Venkata Ravuri**. I'm documenting my learning notes in this blog. Other than writing a AI/ML blog, I'm a Technical Architect at VMware.
+    Content: Hi, this is **Venkata Ravuri**. I 💕 blogging & open source, have passion for learning and sharing knowledge with others as public as possible. Other than writing about AI/ML, I'm an AI Engineer & Technical Architect at VMware.
   socialIcons:
     - name: github
       url: "https://github.com/venkataravuri"
