@@ -1,5 +1,5 @@
 ---
-title: "🔎 A _Visual Similarity Search_ (:tshirt:), _Text Semanitic Search_ (:open_book:) and _Audio Search_ (:microphone:) Engine using Embeddings and Vector DB"
+title: "🔎 A Visual Similarity Search 👕, Text Semanitic Search 📖 and Audio Search 🎤 Engine using Embeddings and Vector DB"
 date: 2023-06-27T18:30:03+00:00
 weight: 1
 # aliases: ["/first"]
