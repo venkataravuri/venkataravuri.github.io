@@ -34,3 +34,13 @@ editPost:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
+
+In this ariticle, we dive deep into Visual similarity search, text semaitic search and audi search concepts and build a unified corpous store (text,image & audio) using vector embeddings and vector databases.
+
+### Overview
+As users use high quality search engines such as Google, Bing, they have similar expectations when they use search functionality in an application for blazing fast and highly relevant search results. Serarch now a days is not just limited to text, users want to find similar images based on a image & its cotents (visual similarity seaarch), also search content within videos and audios quickly. 
+
+In past, search technolgies employ `keyword-based` search mechanism to find content that matches words in search query. Past few years, `Semantic search` is gaining momentum as it takes into account contextual meaning of the query and intent and provides results that match your mind. 
+
+The semantic search is powered by Vector Search, delivers high relevant results across text, image and audio.
+
