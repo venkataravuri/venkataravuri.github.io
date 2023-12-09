@@ -1,6 +1,6 @@
 baseURL: "https://www.unobotics.com/"
 title: UnoBOTics
-paginate: 5
+paginate: 10
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -20,12 +20,10 @@ params:
   description: "Venkata Ravuri's Professional Blog"
   keywords: [Blog, Portfolio, PaperMod]
   author: Me
-  #author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
-
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true

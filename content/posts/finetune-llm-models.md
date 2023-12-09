@@ -1,7 +1,7 @@
 ---
 title: "Techiniques to fine-tune open-source LLM models for your usecases"
 date: 2023-05-29T18:30:03+00:00
-weight: 1
+weight: 2
 # aliases: ["/first"]
 tags: ["Generative AI", "ML", "LLM", "LangChain"]
 author: "Me"

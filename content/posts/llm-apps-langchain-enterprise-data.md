@@ -1,7 +1,7 @@
 ---
 title: "Build a Custom LLM Chatbot with your Enterprise Private Data"
 date: 2023-05-21T11:30:03+00:00
-weight: 1
+weight: 3
 # aliases: ["/first"]
 tags: ["Generative AI", "ML", "LLM", "LangChain"]
 author: "Me"

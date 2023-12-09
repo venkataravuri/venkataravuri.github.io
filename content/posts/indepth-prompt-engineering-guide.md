@@ -1,7 +1,7 @@
 ---
 title: "Indepth Prompt Engineering Techiniques"
 date: 2023-06-11T18:30:03+00:00
-weight: 1
+weight: 2
 # aliases: ["/first"]
 tags: ["Generative AI", "ML", "LLM", "LangChain"]
 author: "Me"
