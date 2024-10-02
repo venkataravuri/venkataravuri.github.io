@@ -1,6 +1,6 @@
 ---
-title: Example Category
-description: A description of this category
+title: Machine Learning
+description: Machine Learning Articles
 image:
 
 # Badge style
