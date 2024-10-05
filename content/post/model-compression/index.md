@@ -23,10 +23,14 @@ Model compression techniques offer benefits such as,
 
 ## Pruning: Trimming the Excess
 
+https://colab.research.google.com/github/pytorch/tutorials/blob/gh-pages/_downloads/7126bf7beed4c4c3a05bcc2dac8baa3c/pruning_tutorial.ipynb
+
 ## Quantization: Shrinking the Precision
 
 
 ## Distillation: Knowledge Transfer for Efficiency
+
+https://colab.research.google.com/github/pytorch/tutorials/blob/gh-pages/_downloads/7126bf7beed4c4c3a05bcc2dac8baa3c/pruning_tutorial.ipynb
 
 Distillation is a process of training a smaller, more compact model to mimic the behavior of a larger, more complex model. 
 
