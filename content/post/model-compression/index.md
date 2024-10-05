@@ -1,5 +1,5 @@
 ---
-title: ML Model Compression: A practicle guide to Pruning, Quantization and Distillation
+title: ML Model Compression - A practicle guide to Pruning, Quantization and Distillation
 description: Reduce size of ML models without loosing their performance and efficiency and improving inferences speed usng techniques such as Pruning, Quantization and Distillation.
 slug: pytorch-optimization
 date: 2024-02-21 00:00:00+0000
