@@ -42,11 +42,22 @@ Let’s now demonstrate that using torch.compile can speed up real models. We wi
 
 ## Model performance in torch.compile mode
 
+### Layer Fusion
+**Layer fusion** aims to combine multiple layers of a neural network into a single layer, thereby reducing the computational overhead associated with separate operations.
 
+How Layer Fusion Works
 
+- Similarity Assessment: The process begins by evaluating the similarity between layers using a distance metric, such as cosine similarity, based on their weights.
+- Selection of Layers: The top-k similar layers are identified.
+- Weight Freezing: For each selected layer, one set of weights is frozen while the other continues to be updated during training. This approach allows the model to maintain efficiency without significantly sacrificing accuracy
 
+### Operator Fusion
+Operator fusion is another optimization technique that merges different operations into a single computational step. 
 
+Mechanism of Operator Fusion
 
+- In typical scenarios, an operation like convolution is followed by an activation function (e.g., ReLU). Without fusion, the results from the convolution must first be written to memory before the activation can be computed, leading to delays.
+- By fusing these operations, the activation function can be executed immediately after the convolution without waiting for memory writes, thus enhancing performance
 
 
 -------------
