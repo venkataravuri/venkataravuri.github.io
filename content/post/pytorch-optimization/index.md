@@ -9,7 +9,16 @@ tags:
 weight: 1       # You can add weight to some posts to override the default sorting (date descending)
 ---
 
-In this article, we explore an elegant way to speed up your PyTorch based ML models with minimal code changes using `torch.compile` which makes PyTorch code run faster by JIT-compiling PyTorch code into optimized kernels. `torch.compile` significantly enhances model performance by optimizing both the computation graph and the execution of operations on hardware accelerators, leading to faster inference and training times.
+In this article, we explore tecniques to improve training and inference performance of Deep Learning models built using PyTorch.
+
+PyTorch 2.0 introduces new compiler technologies to improve model performance and runtime efficiency and target diverse hardware backends by wrapping model with simple command `torch.compile()`. PyTorch 2.0 compiler translates high-level code written in deep learning frameworks into optimized lower level hardware specific code to accelerate training and inference. To improve performance, a deep learning compiler has to take advantage of hardware specific features such as mixed precision support, performance optimized kernels and minimize communication between host (CPU), Operator Fusion and CPU/GPU Code-Generation and AI accelerator.
+
+
+There are different phases of the compilation process,
+
+
+
+`torch.compile` makes PyTorch code run faster by JIT-compiling PyTorch code into optimized kernels. `torch.compile` significantly enhances model performance by optimizing both the computation graph and the execution of operations on hardware accelerators, leading to faster inference and training times.
 
 ## What happens when you wrap your model with `torch.compile(model)`?
 
