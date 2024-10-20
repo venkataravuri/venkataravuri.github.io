@@ -20,7 +20,7 @@ There are different phases of the compilation process,
 
 `torch.compile` makes PyTorch code run faster by JIT-compiling PyTorch code into optimized kernels. `torch.compile` significantly enhances model performance by optimizing both the computation graph and the execution of operations on hardware accelerators, leading to faster inference and training times.
 
-## What happens when you wrap your model with `torch.compile(model)`?
+## What happens when a model wrapped with `torch.compile(model)`?
 
 When torch.compile is invoked in PyTorch, it performs several background steps to optimize model execution by using several components. The torch.compile model goes through the following steps before execution,
 
