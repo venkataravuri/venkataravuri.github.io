@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Venkata Ravuri</title><link>https://venkataravuri.github.io/post/</link><description>Recent content in Posts on Venkata Ravuri</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 21 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://venkataravuri.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>ML Model Compression - A practicle guide to Pruning, Quantization and Distillation</title><link>https://venkataravuri.github.io/p/model-compression/</link><pubDate>Wed, 21 Feb 2024 00:00:00 +0000</pubDate><guid>https://venkataravuri.github.io/p/model-compression/</guid><description>&lt;img src="https://venkataravuri.github.io/cover.jpg" alt="Featured image of post ML Model Compression - A practicle guide to Pruning, Quantization and Distillation" />&lt;p>Deep learning models often have too many parameters, which require significant GPU resources and time for inference. Model compression techniques makes models smaller and simpler without losing their effectiveness by reducing number of parameters. Compression benefits,&lt;/p>
+&lt;ol>
+&lt;li>Reduce the size of your model, which makes it easier to store, transfer, and deploy.&lt;/li>
+&lt;li>Smaller models also require less memory, which makes them perfect for resource-constrained devices.&lt;/li>
+&lt;li>Improve inference speed, allowing for faster predictions and real-time applications.&lt;/li>
+&lt;li>Compressed models consume less energy, can be deployed to edge devices such as mobiles, glasses, etc.&lt;/li>
+&lt;/ol>
+&lt;h2 id="scissors-pruning-trimming-the-excess">:scissors: Pruning: Trimming the Excess
+&lt;/h2>&lt;p>Model pruning enhances model efficiency by removing unnecessary components, such as weights or entire neurons, from a trained neural network. This process helps reduce the model&amp;rsquo;s size and improves its speed without significantly sacrificing accuracy.&lt;/p>
+&lt;p>Pruning can be broadly categorized into two types: &lt;strong>unstructured pruning&lt;/strong> and &lt;strong>structured pruning&lt;/strong>.&lt;/p>
+&lt;h3 id="unstructured-pruning">Unstructured Pruning
+&lt;/h3>&lt;p>Unstructured pruning focuses on individual weights within the model. This method involves setting certain weights to zero based on specific criteria, such as their magnitude. By removing these less significant weights, the model remains compact while still retaining its overall functionality.&lt;/p>
+&lt;h3 id="structured-pruning">Structured Pruning
+&lt;/h3>&lt;p>In contrast, structured pruning removes larger, predefined groups of parameters, such as entire neurons, filters, or layers. This approach takes into account the architecture of the network and aims to maintain its structural integrity while reducing complexity.&lt;/p>
+&lt;h3 id="local-pruning">Local Pruning
+&lt;/h3>&lt;p>Local pruning refers to the practice of applying pruning techniques at the level of individual layers or components within the model. In this approach, each layer is analyzed independently, and pruning decisions are made based on the characteristics of that specific layer.&lt;/p>
+&lt;h3 id="global-pruning">Global Pruning
+&lt;/h3>&lt;p>In contrast, global pruning considers the entire model as a whole when making pruning decisions. This technique identifies and removes the least significant connections across all layers simultaneously. By doing so, global pruning often achieves better overall performance and efficiency compared to local methods, as it allows for more comprehensive optimization of the network&amp;rsquo;s structure.&lt;/p>
+&lt;p>Pruning Tutorial &lt;a class="link" href="https://colab.research.google.com/github/pytorch/tutorials/blob/gh-pages/_downloads/7126bf7beed4c4c3a05bcc2dac8baa3c/pruning_tutorial.ipynb" target="_blank" rel="noopener"
+>&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
+&lt;h2 id="white_large_square-white_medium_square-quantization-shrinking-the-precision">:white_large_square: :white_medium_square: Quantization: Shrinking the Precision
+&lt;/h2>&lt;p>Model quantization reduces the size and computational requirements of neural networks by converting high-precision weights and activations into lower-precision formats.&lt;/p>
+&lt;p>Different numerical formats are used to represent weights and activations in neural networks.&lt;/p>
+&lt;ul>
+&lt;li>Float32 (FP32): a 32-bit floating point, is the standard representation for real numbers in many machine learning models.&lt;/li>
+&lt;li>Bfloat16 (BF16): a 16-bit floating-point format that retains the exponent size of float32 but reduces the number of bits used for the mantissa. This allows it to represent a similar range as float32 but with less precision.&lt;/li>
+&lt;li>Int8: an 8-bit integer format that can represent values from [−128,127][−128,127].&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;p>Quantization techniques aim to convert high-precision representations (like float32) into lower-precision formats (like int8 or int4) to enhance performance and reduce resource consumption in deep learning models.&lt;/p>
+&lt;h3 id="quantization-techniques">Quantization Techniques
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Post-Training Quantization (PTQ)&lt;/strong>: PTQ involves quantizing a pre-trained model after its training phase. Common approaches within PTQ include:&lt;/p>
+&lt;ul>
+&lt;li>Parameter Quantization: Reduces the precision of weights and biases.&lt;/li>
+&lt;li>Dynamic Range Quantization: Adjusts the precision of weights based on observed activation ranges.&lt;/li>
+&lt;li>Mixed-Precision Quantization: Combines different precision levels for weights and activations to balance accuracy and efficiency.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Quantization-Aware Training (QAT)&lt;/strong>: In contrast to PTQ, QAT integrates quantization during the training process. Key aspects include:&lt;/p>
+&lt;ul>
+&lt;li>Activation Quantization: Involves quantizing not just weights but also intermediate activation values during inference.&lt;/li>
+&lt;li>Fake Quantization: Simulates the effects of quantization during training, helping the model adjust accordingly.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>There two popular libraries for quantization,&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>GPTQ (Generalized Post-Training Quantization)&lt;/strong>: GPTQ employs a mixed quantization strategy using INT4 for weights while keeping activations in higher precision (FP16).&lt;/li>
+&lt;li>&lt;strong>Bitsandbytes&lt;/strong>: Bitsandbytes is a library designed for efficient training and inference of large language models. It provides tools for quantizing models, enabling reduced memory consumption and faster processing times. The library supports various quantization techniques, including both PTQ and QAT, making it versatile for different use cases.&lt;/li>
+&lt;/ul>
+&lt;h2 id="woman_teacher-man_student-distillation-knowledge-transfer-for-efficiency">:woman_teacher: :man_student: Distillation: Knowledge Transfer for Efficiency
+&lt;/h2>&lt;p>Distillation is a process of training a smaller, more compact model to mimic the behavior of a larger, more complex model.&lt;/p>
+&lt;p>By transferring knowledge from the larger model, distillation enables the creation of highly efficient models without sacrificing performance. This technique has been particularly effective in scenarios where computational resources are limited, such as deploying models on edge devices, smartphones, tablets, etc. A large language model can be distilled into a smaller model that retains most of the original model’s performance while being more lightweight and faster to execute.&lt;/p>
+&lt;p>Knowledge Distillation Tutorial &lt;a class="link" href="https://colab.research.google.com/github/pytorch/tutorials/blob/gh-pages/_downloads/a19d8941b0ebb13c102e41c7e24bc5fb/knowledge_distillation_tutorial.ipynb" target="_blank" rel="noopener"
+>&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p></description></item><item><title>Speed up PyTorch ML Models</title><link>https://venkataravuri.github.io/p/pytorch-optimization/</link><pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate><guid>https://venkataravuri.github.io/p/pytorch-optimization/</guid><description>&lt;img src="https://venkataravuri.github.io/p/pytorch-optimization/cover.jpg" alt="Featured image of post Speed up PyTorch ML Models" />&lt;p>In this article, we explore tecniques to improve training and inference performance of Deep Learning models built using PyTorch.&lt;/p>
+&lt;p>PyTorch 2.0 introduces new compiler technologies to improve model performance and runtime efficiency and target diverse hardware backends by wrapping model with simple command &lt;code>torch.compile()&lt;/code>. PyTorch 2.0 compiler translates high-level code written in deep learning frameworks into optimized lower level hardware specific code to accelerate training and inference. To improve performance, a deep learning compiler has to take advantage of hardware specific features such as mixed precision support, performance optimized kernels and minimize communication between host (CPU), Operator Fusion and CPU/GPU Code-Generation and AI accelerator.&lt;/p>
+&lt;p>There are different phases of the compilation process,&lt;/p>
+&lt;img src="pytorch-compiler-phases.png" width="70%" height="70%" />
+&lt;p>&lt;code>torch.compile&lt;/code> makes PyTorch code run faster by JIT-compiling PyTorch code into optimized kernels. &lt;code>torch.compile&lt;/code> significantly enhances model performance by optimizing both the computation graph and the execution of operations on hardware accelerators, leading to faster inference and training times.&lt;/p>
+&lt;h2 id="what-happens-when-a-model-wrapped-with-torchcompilemodel">What happens when a model wrapped with &lt;code>torch.compile(model)&lt;/code>?
+&lt;/h2>&lt;p>When torch.compile is invoked in PyTorch, it performs several background steps to optimize model execution by using several components. The torch.compile model goes through the following steps before execution,&lt;/p>
+&lt;p>&lt;strong>TorchDynamo&lt;/strong> is responsible for JIT compiling arbitrary Python code into FX graphs (a graph of tensor operations), which can then be further optimized. TorchDynamo extracts FX graphs by analyzing Python bytecode during runtime and detecting calls to PyTorch operations. If it comes across a segment of code that it cannot interpret, it defaults to the regular Python interpreter. This approach ensures that it can handle a wide range of programs while providing significant performance improvements.&lt;/p>
+&lt;p>&lt;strong>AOTAutograd&lt;/strong> Automatically generates the backward computation graph from the forward computation graph, ensuring that gradients can be computed efficiently. Its function is to produce backward traces in an ahead-of-time fashion, enhancing the efficiency of the differentiation process. This enables acceleration of both the forward and backward pass.&lt;/p>
+&lt;p>&lt;strong>TorchInductor&lt;/strong> The default backend that compiles the computation graph into optimized low-level code suitable for execution on various hardware accelerators. It takes the computation graph generated by TorchDynamo and converts it into optimized low-level kernels. For NVIDIA and AMD GPUs, it employs OpenAI &lt;strong>Triton&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>Triton is a new programming language that provides much higher productivity than CUDA, but with the ability to beat the performance of highly optimized libraries like cuDNN with clean and simple code. It is developed by Philippe Tillet at OpenAI, and is seeing enormous adoption and traction across the industry. Triton supports NVIDIA GPUs, . It is quickly growing in popularity as a replacement for hand written CUDA kernels.
+C++/OpenMP is a widely adopted specification for writing parallel kernels. OpenMP provides a work sharing parallel execution model, and enables support for CPUs.
+&lt;/code>&lt;/pre>
+&lt;p>Let’s now demonstrate that using torch.compile can speed up real models. We will compare standard eager mode and torch.compile by evaluating and training a sample CNN model on CIFAR10 dataset.&lt;/p>
+&lt;h2 id="model-performance-in-eager-mode">Model performance in Eager mode
+&lt;/h2>&lt;h2 id="model-performance-in-torchcompile-mode">Model performance in torch.compile mode
+&lt;/h2>&lt;h3 id="layer-fusion">Layer Fusion
+&lt;/h3>&lt;p>&lt;strong>Layer fusion&lt;/strong> aims to combine multiple layers of a neural network into a single layer, thereby reducing the computational overhead associated with separate operations.&lt;/p>
+&lt;p>How Layer Fusion Works&lt;/p>
+&lt;ul>
+&lt;li>Similarity Assessment: The process begins by evaluating the similarity between layers using a distance metric, such as cosine similarity, based on their weights.&lt;/li>
+&lt;li>Selection of Layers: The top-k similar layers are identified.&lt;/li>
+&lt;li>Weight Freezing: For each selected layer, one set of weights is frozen while the other continues to be updated during training. This approach allows the model to maintain efficiency without significantly sacrificing accuracy&lt;/li>
+&lt;/ul>
+&lt;h3 id="operator-fusion">Operator Fusion
+&lt;/h3>&lt;p>Operator fusion is another optimization technique that merges different operations into a single computational step.&lt;/p>
+&lt;p>Mechanism of Operator Fusion&lt;/p>
+&lt;ul>
+&lt;li>In typical scenarios, an operation like convolution is followed by an activation function (e.g., ReLU). Without fusion, the results from the convolution must first be written to memory before the activation can be computed, leading to delays.&lt;/li>
+&lt;li>By fusing these operations, the activation function can be executed immediately after the convolution without waiting for memory writes, thus enhancing performance&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>template epilogue fusions, tiling, and horizontal/vertical fusions.&lt;/p></description></item></channel></rss>
